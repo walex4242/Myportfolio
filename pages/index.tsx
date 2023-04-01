@@ -1,5 +1,5 @@
 import Head from "next/head";
-import type { GetStaticProps } from "next";
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "@/components/About";
@@ -13,7 +13,7 @@ import { fetchPageInfo } from "@/utils/fetchPageInfo";
 import { fetchExperiences } from "@/utils/fetchExperiences";
 import { fetchSkills } from "@/utils/fetchSkills";
 import { fetchProjects } from "@/utils/fetchProjects";
-import { fetchSocials } from "@/utils/fetchSocials";
+import { fetchSocial } from "@/utils/fetchSocial";
 
 type Props = {
   pageInfo: PageInfo;
@@ -31,7 +31,7 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
     scrollbar-thumb-[#F7AB0A]/80"
     >
       <Head>
-        <title>{pageInfo.name} Portfolio</title>
+        <title>{pageInfo?.name}</title> 
       </Head>
 
       <Header socials={socials} />
@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
-  const socials: Social[] = await fetchSocials();
+  const socials: Social[] = await fetchSocial();
 
   return {
     props: {
