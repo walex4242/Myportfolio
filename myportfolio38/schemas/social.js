@@ -1,6 +1,6 @@
-import {defineField, defineType} from 'sanity'
 
-export default defineType({
+
+export default {
   name: 'social',
   title: 'Social',
   type: 'document',
@@ -17,4 +17,4 @@ export default defineType({
       type: 'url',
     },
   ],
-})
+}

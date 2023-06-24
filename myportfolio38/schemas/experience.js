@@ -1,6 +1,6 @@
-import {defineField, defineType} from 'sanity'
 
-export default defineType({
+
+export default {
   name: 'experience',
   title: 'Experience',
   type: 'document',
@@ -56,4 +56,4 @@ export default defineType({
       of: [{type: 'string'}],
     },
   ],
-})
+}

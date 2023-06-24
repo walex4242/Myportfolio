@@ -1,6 +1,6 @@
-import {defineField, defineType} from 'sanity'
 
-export default defineType({
+
+export default {
   name: 'skill',
   title: 'Skill',
   type: 'document',
@@ -27,4 +27,4 @@ export default defineType({
       },
     },
   ],
-})
+}
